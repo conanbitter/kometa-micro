@@ -15,5 +15,8 @@ set(SRC_FILES
 list(TRANSFORM INCLUDE_FILES PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 list(TRANSFORM SRC_FILES PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/src/)
 
+add_subdirectory(dependencies/minifb)
+
 add_executable(kometa ${INCLUDE_FILES} ${SRC_FILES})
 target_include_directories(kometa PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(kometa minifb)
